@@ -1,0 +1,9 @@
+[basic]
+mock_send = true
+
+[rpc]
+testnet = "https://rpc.test.btcs.network"
+mainnet = "https://rpc.coredao.org"
+
+[batchSendContract]
+mainnet = "0x73292e6B1233981E8c8000503fA1a2ddB670ffc8"
