@@ -89,11 +89,11 @@ if __name__ == '__main__':
                 logging.info(f"send to {address_collection}")
             else:
                 tx_dict = batch_send_contract.functions.batchSend(
-                    address_collection, Web3.toWei(0.1, 'ether')
+                    address_collection, Web3.toWei(reward_per_address, 'ether')
                 ).buildTransaction({
                     "from": send_reward_account.address,
                     "nonce": w3.eth.get_transaction_count(send_reward_account.address),
-                    "value": Web3.toWei(0.1, 'ether') * len(address_collection)
+                    "value": Web3.toWei(reward_per_address, 'ether') * len(address_collection)
                 })
 
                 tx = w3.eth.send_transaction(tx_dict)
@@ -111,6 +111,7 @@ if __name__ == '__main__':
     load_dotenv(current_path.parent / ".env")
 
     mock_send = conf['basic']['mock_send']
+    reward_per_address = float(conf['basic']['reward_per_address'])
 
     send_reward_account: LocalAccount = Account.from_key(os.environ['pk'])
 
