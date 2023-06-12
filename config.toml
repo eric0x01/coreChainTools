@@ -1,6 +1,6 @@
 [basic]
 mock_send = true
-reward_per_address = 0.05
+reward_per_address = 0.02
 
 [rpc]
 testnet = "https://rpc.test.btcs.network"
